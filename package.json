@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "yoututorbackend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OlgaSadova/FinalProjectBackEnd.git"
+    "url": "git+https://github.com/ValVarius/YouTutorBackEnd.git"
+    
   },
-  "author": "",
+  "author": "Valerio Varani",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OlgaSadova/FinalProjectBackEnd/issues"
+    "url": "https://github.com/ValVarius/YouTutorBackEnd/issues"
   },
-  "homepage": "https://github.com/OlgaSadova/FinalProjectBackEnd#readme",
+  "homepage": "https://github.com/ValVarius/YouTutorBackEnd#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
