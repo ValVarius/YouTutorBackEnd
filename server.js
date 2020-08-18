@@ -17,12 +17,13 @@ app.use(
 );
 app.use(express.json());
 
-// app.use(
-//   cors({
-//     origin: ["http://localhost:3000"], // ["https://betutor2020.herokuapp.com/"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    // origin: ["http://localhost:3000"],
+    origin: ["https://you-tutor.herokuapp.com"],
+    credentials: true,
+  })
+);
 
 app.use(
   session({
