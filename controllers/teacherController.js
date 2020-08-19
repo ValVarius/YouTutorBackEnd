@@ -7,8 +7,11 @@ router.get("/signup/teacher", function (req, res) {
 });
 
 router.delete("/api/techerskillsdelete", function (req, res) {
-  console.log(req.session.user.id);
-  console.log(req);
+  //   console.log(req.session.user.id);
+  console.log(
+    "#############################################################################",
+    req.session
+  );
 
   db.TeacherSkill.destroy({
     where: {
@@ -26,8 +29,11 @@ router.delete("/api/techerskillsdelete", function (req, res) {
 });
 
 router.delete("/posts/deleteTeacher/currentuser", function (req, res) {
-  console.log(req.session.user.id);
-  console.log(req);
+  //   console.log(req.session.user.id);
+  console.log(
+    "############################################################################",
+    req.session
+  );
 
   db.Teacher.destroy({
     where: {
@@ -35,6 +41,7 @@ router.delete("/posts/deleteTeacher/currentuser", function (req, res) {
     },
   })
     .then((data) => {
+      console.log("DELETED STUFF: " + data);
       res.json(data);
     })
     .catch((err) => {
