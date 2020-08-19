@@ -21,6 +21,7 @@ router.post("/login", function (req, res) {
         }
         else if (!dbUser) {
             req.session.user = false
+            console.log("WRONG USER");
             res.send("no user found")
         }
         else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
@@ -30,6 +31,7 @@ router.post("/login", function (req, res) {
         
         else {
             req.session.user = false
+            console.log("WRONG password");
             res.send("incorrect password")
         }
     }).catch(err => {
