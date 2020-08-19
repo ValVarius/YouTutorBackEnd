@@ -3,27 +3,12 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 
 const app = express();
+const db = require("./models");
 
 const PORT = process.env.PORT || 8080;
 require("dotenv").config();
 const session = require("express-session");
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
-
-const db = require("./models");
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
-app.use(express.json());
-
-app.use(
-  cors({
-    // origin: ["http://localhost:3000"],
-    origin: ["https://you-tutor.herokuapp.com","http://localhost:3000"],
-    credentials: true,
-  })
-);
 
 app.use(
   session({
@@ -36,6 +21,22 @@ app.use(
     cookie: {
       maxAge: 3600000,
     },
+  })
+);
+
+
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+app.use(express.json());
+
+app.use(
+  cors({
+    // origin: ["http://localhost:3000"],
+    origin: ["https://you-tutor.herokuapp.com","http://localhost:3000"],
+    credentials: true,
   })
 );
 
