@@ -28,6 +28,8 @@ router.post("/login", function (req, res) {
             console.log("BEFORE ASSIGNMENT",req.session);
             req.session.user = dbUser
             console.log("AFTER ASSIGNMENT", req.session);
+            console.log("SESSION ID NUMBER", req.sessionID);
+
             res.json(dbUser)
         }
         
