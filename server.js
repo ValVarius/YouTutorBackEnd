@@ -43,6 +43,22 @@ app.use(
   })
 );
 
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    store: new SequelizeStore({
+      db: db.sequelize,
+    }),
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 3600000,
+      samesite:'strict',
+      secure:true
+    },
+  })
+);
+
 app.use(express.static("public"));
 
 const logInRoute = require("./controllers/loginController.js");
