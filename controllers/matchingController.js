@@ -35,7 +35,6 @@ router.post("/api/matchteacherskills", (req, res) => {
 
             const test = []
             allTeacherFilterd.forEach(element => {
-                console.log("Matched Teachers line 38" ,element)
                 teacherResults = []                
                 skillsArr.forEach(result => {
                     if(element===result.dataValues.UserId)teacherResults.push(result.dataValues)
@@ -84,7 +83,7 @@ router.post("/api/matchstudentskills", (req, res) => {
             const test = []
             allStudentFilterd.forEach(element => {
                 studentResults = []
-                console.log("Matched Students line 86" ,element)
+                console.log(element)
                 skillsArr.forEach(result => {
                     if(element===result.dataValues.UserId)studentResults.push(result.dataValues)
                 })
