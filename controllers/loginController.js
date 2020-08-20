@@ -47,7 +47,7 @@ router.post("/login", function (req, res) {
     });
 });
 router.get("/readsessions", (req, res) => {
-    console.log("*********************************************************", session);
+    console.log("*********************************************************", req.session);
     res.json(req.session)
 })
 router.get("/logout",(req,res)=>{
