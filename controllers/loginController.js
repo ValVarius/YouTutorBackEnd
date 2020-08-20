@@ -25,7 +25,14 @@ router.post("/login", function (req, res) {
             res.send("no user found")
         }
         else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
+            console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$" + "SESSION PRIOR: ", req.session);
+            console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$" + "USER FOUND: ", dbUser);
+
             req.session.user = dbUser
+
+            console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$" + "SESSION CHANGED: ", req.session);
+            console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$" + "req.session.user: ", req.session.user);
+            
             res.json(dbUser)
         }
         
@@ -40,7 +47,7 @@ router.post("/login", function (req, res) {
     });
 });
 router.get("/readsessions", (req, res) => {
-    console.log("*********************************************************", req.session);
+    console.log("*********************************************************", session);
     res.json(req.session)
 })
 router.get("/logout",(req,res)=>{
