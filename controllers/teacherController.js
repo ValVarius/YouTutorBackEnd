@@ -34,6 +34,10 @@ router.delete("/posts/deleteTeacher/currentuser", function (req, res) {
     "############################################################################",
     req.session
   );
+  console.log(
+    "############################################################################",
+    req
+  );
 
   db.Teacher.destroy({
     where: {
