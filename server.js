@@ -20,15 +20,12 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 3600000,
-      samesite:'strict' 
+      samesite:'strict',
+      secure:true
     },
   })
 );
 
-if (process.env.NODE_ENV === 'production') {
-  app.set('trust proxy', 1); // trust first proxy
-  session.cookie.secure = true; // serve secure cookies
-}
 
 
 app.use(
