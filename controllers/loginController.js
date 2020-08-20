@@ -25,7 +25,9 @@ router.post("/login", function (req, res) {
             res.send("no user found")
         }
         else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
+            console.log("BEFORE ASSIGNMENT",req.session);
             req.session.user = dbUser
+            console.log("AFTER ASSIGNMENT", req.session);
             res.json(dbUser)
         }
         
