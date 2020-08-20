@@ -3,13 +3,31 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 
 const app = express();
+const db = require("./models");
 
 const PORT = process.env.PORT || 8080;
 require("dotenv").config();
 const session = require("express-session");
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-const db = require("./models");
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    store: new SequelizeStore({
+      db: db.sequelize,
+    }),
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 3600000,
+      samesite:'strict',
+      secure:true
+    },
+  })
+);
+
+
+
 app.use(
   express.urlencoded({
     extended: true,
