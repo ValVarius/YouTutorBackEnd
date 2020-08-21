@@ -22,8 +22,7 @@ app.use(
     // origin: ["http://localhost:3000"],
     origin: ["https://you-tutor.herokuapp.com"],
     credentials: true,
-    samesite:'strict',
-    secure:true
+    secure:false
   })
 );
 
