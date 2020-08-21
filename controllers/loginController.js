@@ -8,6 +8,7 @@ router.get("/", function (req, res) {
     res.render("<h1> Signup Please </h1>");
 });
 router.post("/login", function (req, res) {
+    req.session.destroy();
     db.User.findOne({
         where: {
             email: req.body.email
@@ -16,10 +17,7 @@ router.post("/login", function (req, res) {
         include: [db.Teacher, db.Studentpost,db.StudentSkill,db.TeacherSkill]
 
     }).then(dbUser => {
-        if (req.session.user) {
-            res.json(dbUser)
-        }
-        else if (!dbUser) {
+        if (!dbUser) {
             req.session.user = false
             console.log("WRONG USER");
             res.send("no user found")
