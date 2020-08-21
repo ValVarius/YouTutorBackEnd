@@ -44,15 +44,7 @@ router.post("/login", function (req, res) {
     });
 });
 router.get("/readsessions", (req, res) => {
-
-    db.Session.findAll({})
-    .then(function (sessions) {
-        console.log(json(sessions));
-
-    }).catch(err => {
-        console.log(err);
-    });
-
+    
     res.json(req.session)
 })
 router.get("/logout",(req,res)=>{
