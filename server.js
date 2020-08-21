@@ -19,11 +19,9 @@ app.use(express.json());
 
 app.use(
   cors({
-    // origin: ["http://localhost:3000"],
-    origin: ["https://you-tutor.herokuapp.com"],
+    origin: ["http://localhost:3000"],
+    // origin: ["https://you-tutor.herokuapp.com"],
     credentials: true,
-    samesite:'strict',
-    secure:true
   })
 );
 
@@ -37,6 +35,8 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 3600000,
+      samesite: "strict",
+      secure: true,
     },
   })
 );
