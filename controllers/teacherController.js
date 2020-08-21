@@ -28,7 +28,7 @@ router.delete("/api/techerskillsdelete", function (req, res) {
 router.delete("/posts/deleteTeacher/currentuser", function (req, res) {
     console.log(req.session);
     console.log("SESSION ID NUMBER", req.sessionID);
-    console.log(req.body);
+    console.log(req);
     db.Teacher.destroy({
 
         where: {
