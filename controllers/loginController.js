@@ -20,7 +20,7 @@ router.post("/login", function (req, res) {
             res.json(dbUser)
         }
         else if (!dbUser) {
-            req.session.user = false
+            // req.session.user = false
             console.log("WRONG USER");
             res.send("no user found")
         }
