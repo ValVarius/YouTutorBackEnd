@@ -31,6 +31,7 @@ app.use(
     store: new SequelizeStore({
       db: db.sequelize,
     }),
+    proxy : true,
     resave: false,
     saveUninitialized: false,
     cookie: {
