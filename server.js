@@ -40,6 +40,7 @@ app.use(
     },
   })
 );
+app.enable('trust proxy');
 
 app.use(express.static("public"));
 
