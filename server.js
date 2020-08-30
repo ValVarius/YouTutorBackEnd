@@ -17,11 +17,22 @@ app.use(
 );
 app.use(express.json());
 
+const origins = [
+  'http://localhost:3000', // Development
+  'http://you-tutor.herokuapp.com', // Just for debugging reasons
+  'https://you-tutor.herokuapp.com',
+  'http://www.you-tutor.com/profile'
+];
+
 app.use(
   cors({
+
+    origin: origins,
+
     // origin: ["http://localhost:3000"],
     // origin: ["http://www.you-tutor.com","https://you-tutor.herokuapp.com","http://localhost:3000"],
     origin: ["http://www.you-tutor.com"],
+
     credentials: true,
   })
 );
