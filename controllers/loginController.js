@@ -26,7 +26,9 @@ router.post("/login", function (req, res) {
         }
         else if (bcrypt.compareSync(req.body.password, dbUser.password)) {
             req.session.user = dbUser
-            console.log("JUST CREATED SESSION ", req);
+
+
+            console.log("JUST CREATED SESSION *********",req.session)
             res.json(dbUser)
         }
         

@@ -26,7 +26,13 @@ const origins = [
 
 app.use(
   cors({
+
     origin: origins,
+
+    // origin: ["http://localhost:3000"],
+    // origin: ["http://www.you-tutor.com","https://you-tutor.herokuapp.com","http://localhost:3000"],
+    origin: ["http://www.you-tutor.com"],
+
     credentials: true,
   })
 );
@@ -37,6 +43,7 @@ app.use(
     store: new SequelizeStore({
       db: db.sequelize,
     }),
+    proxy : true,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -44,6 +51,7 @@ app.use(
     },
   })
 );
+app.enable('trust proxy');
 
 app.use(express.static("public"));
 
